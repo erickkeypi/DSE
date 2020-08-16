@@ -130,7 +130,7 @@ void DSE::update(){
       coolantTemperature = modbusTCPClient.holdingRegisterRead(1025);//coolant temp
       fuelLevel = modbusTCPClient.holdingRegisterRead(1027);//fuel level
 
-      V = modbusTCPClient.holdingRegisterRead(1699) << 16 | modbusTCPClient.holdingRegisterRead(1668);
+      V = modbusTCPClient.holdingRegisterRead(1699) << 16 | modbusTCPClient.holdingRegisterRead(1698);
       KW = modbusTCPClient.holdingRegisterRead(1801) << 16 | modbusTCPClient.holdingRegisterRead(1800);//revisar
       KVAR = modbusTCPClient.holdingRegisterRead(1577) << 16 | modbusTCPClient.holdingRegisterRead(1576);
       KVA = modbusTCPClient.holdingRegisterRead(1569) << 16 | modbusTCPClient.holdingRegisterRead(1568);
