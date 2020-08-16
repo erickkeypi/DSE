@@ -17,11 +17,13 @@ void setup(){
 void loop(){
   if(modulo.connect()){
     modulo.update();
+    Serial.println(millis()/1000);
     Serial.print("Frecuencia: ");
     Serial.println(modulo.HZ);
+    modulo.stop();
   }
   else{
     Serial.println("Error trying to connect");
   }
-  delay(2000);
+  delay(1000);
 }

@@ -68,5 +68,6 @@ public:
   bool beginTransmission(unsigned int,unsigned int);
   void modbusWrite(unsigned int);
   void endTransmission();
+  void stop();
 };
 #endif

@@ -275,3 +275,7 @@ void DSE::modbusWrite(unsigned int _dat){
 void DSE::endTransmission(){
   modbusTCPClient.endTransmission();
 }
+
+void DSE::stop(){
+  modbusTCPClient.stop();
+}
