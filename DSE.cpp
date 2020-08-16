@@ -28,11 +28,6 @@ DSE::DSE(){
   }
 }
 
-DSE::DSE(int _model){
-  DSE();
-  model = _model;
-}
-
 DSE::DSE(int _model, IPAddress _ip){
   DSE();
   model = _model;
@@ -266,7 +261,7 @@ bool DSE::sendButton(int _button){
   return false;
 }
 
-bool DSE::beginTransmission(int _add,int _num){
+bool DSE::beginTransmission(unsigned int _add,unsigned int _num){
   if(!commError){
     return modbusTCPClient.beginTransmission(HOLDING_REGISTERS,_add,_num);
   }

@@ -57,7 +57,6 @@ public:
   unsigned long V, KW, KVAR, KVA, LLAVR, L1N, L2N, L3N, L1L2, L2L3, L3L1, IL1, IL2, IL3 ;
   unsigned long busKW, busLNAVR,busLLAVR, busL1N, busL2N, busL3N, busL1L2, busL2L3, busL3L1, time;
 
-  DSE(int);
   DSE(int, IPAddress);
   DSE(int, IPAddress,char[]);
   void begin();
@@ -66,7 +65,7 @@ public:
   char *getName();
   void update();
   bool sendButton(int);
-  bool beginTransmission(int,int);
+  bool beginTransmission(unsigned int,unsigned int);
   void modbusWrite(unsigned int);
   void endTransmission();
 };
