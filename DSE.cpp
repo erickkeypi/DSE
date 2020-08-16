@@ -32,6 +32,7 @@ DSE::DSE(int _model){
   DSE();
   model = _model;
 }
+
 DSE::DSE(int _model, IPAddress _ip){
   DSE();
   model = _model;
@@ -88,6 +89,15 @@ void DSE::update(){
     else {
       commError=true;//SE ACTIVA EL ERROR SI SE DETECTA UN ERROR EN LA LECTURA DE LOS REGISTROS
     }
+
+    if(modbusTCPClient.requestFrom(HOLDING_REGISTERS,1792,2)){
+      if(modbusTCPClient.available()){
+        time = modbusTCPClient.read() << 16 | modbusTCPClient.read();
+      }
+    }
+    else {
+      commError=true;
+    }
   }
 
   if(!commError){
@@ -119,11 +129,11 @@ void DSE::update(){
       PF = modbusTCPClient.holdingRegisterRead(1581);
       PhRot = modbusTCPClient.holdingRegisterRead(1074);
 
-      oilPressure = modbusTCPClient[genActual].holdingRegisterRead(1024);
-      battery = modbusTCPClient[genActual].holdingRegisterRead(1029);//battery
-      engineSpeed = modbusTCPClient[genActual].holdingRegisterRead(1030);//engine speed
-      coolantTemperature = modbusTCPClient[genActual].holdingRegisterRead(1025);//coolant temp
-      fuelLevel = modbusTCPClient[genActual].holdingRegisterRead(1027);//fuel level
+      oilPressure = modbusTCPClient.holdingRegisterRead(1024);
+      battery = modbusTCPClient.holdingRegisterRead(1029);//battery
+      engineSpeed = modbusTCPClient.holdingRegisterRead(1030);//engine speed
+      coolantTemperature = modbusTCPClient.holdingRegisterRead(1025);//coolant temp
+      fuelLevel = modbusTCPClient.holdingRegisterRead(1027);//fuel level
 
       V = modbusTCPClient.holdingRegisterRead(1699) << 16 | modbusTCPClient.holdingRegisterRead(1668);
       KW = modbusTCPClient.holdingRegisterRead(1801) << 16 | modbusTCPClient.holdingRegisterRead(1800);//revisar
@@ -254,4 +264,19 @@ bool DSE::sendButton(int _button){
     }
   }
   return false;
+}
+
+bool DSE::beginTransmission(int _add,int _num){
+  if(!commError){
+    return modbusTCPClient.beginTransmission(HOLDING_REGISTERS,_add,_num);
+  }
+  return false;
+}
+
+void DSE::modbusWrite(unsigned int _dat){
+  modbusTCPClient.write(_dat);
+}
+
+void DSE::endTransmission(){
+  modbusTCPClient.endTransmission();
 }

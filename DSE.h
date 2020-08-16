@@ -37,7 +37,6 @@ last revision august/15/2020
 
 class DSE {
 private:
-  int model;
   char name[16];
   int alarmsReg[37];
   IPAddress ip;
@@ -48,14 +47,15 @@ private:
   DSE();
 
 public:
+  int model;
   bool commError, commonAlarm;
   bool mainsAvailable, busAvailable, mainBrk, busBrk, genBrk, busLive, genAvailable, loadOn;
   bool alarms[150];
   unsigned int HZ, P, mode, busHZ, busP, PF, PhRot, busPhRot, priority, qualityMSC, mastersOnline, gensOnline;
-  unsigned int oilPressure, Battery, engineSpeed, coolantTemperature, fuelLevel;
+  unsigned int oilPressure, battery, engineSpeed, coolantTemperature, fuelLevel;
   unsigned long engineRuntime, numberOfStarts;
   unsigned long V, KW, KVAR, KVA, LLAVR, L1N, L2N, L3N, L1L2, L2L3, L3L1, IL1, IL2, IL3 ;
-  unsigned long busKW, busLNAVR,busLLAVR, busL1N, busL2N, busL3N, busL1L2, busL2L3, busL3L1;
+  unsigned long busKW, busLNAVR,busLLAVR, busL1N, busL2N, busL3N, busL1L2, busL2L3, busL3L1, time;
 
   DSE(int);
   DSE(int, IPAddress);
@@ -66,5 +66,8 @@ public:
   char *getName();
   void update();
   bool sendButton(int);
+  bool beginTransmission(int,int);
+  void modbusWrite(unsigned int);
+  void endTransmission();
 };
 #endif
