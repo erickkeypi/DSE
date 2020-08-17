@@ -178,6 +178,7 @@ void DSE::update(){
       IL1 = modbusTCPClient.holdingRegisterRead(1045) << 16 | modbusTCPClient.holdingRegisterRead(1044);
       IL2 = modbusTCPClient.holdingRegisterRead(1047) << 16 | modbusTCPClient.holdingRegisterRead(1046);
       IL3 = modbusTCPClient.holdingRegisterRead(1049) << 16 | modbusTCPClient.holdingRegisterRead(1048);
+      KWH = modbusTCPClient.holdingRegisterRead(1801) << 16 | modbusTCPClient.holdingRegisterRead(1800);
 
       mainsAvailable = 0;
       busAvailable = 0;
