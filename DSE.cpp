@@ -97,78 +97,66 @@ void DSE::update(){
 
   if(!commError){
 
+    gensOnline = modbusTCPClient.holdingRegisterRead(28);
+    mastersOnline = modbusTCPClient.holdingRegisterRead(29);
+    qualityMSC = modbusTCPClient.holdingRegisterRead(30);
     mode = modbusTCPClient.holdingRegisterRead(772);
     priority = modbusTCPClient.holdingRegisterRead(35104);
-    qualityMSC = modbusTCPClient.holdingRegisterRead(30);
-    mastersOnline = modbusTCPClient.holdingRegisterRead(29);
-    gensOnline = modbusTCPClient.holdingRegisterRead(28);
 
     busHZ = modbusTCPClient.holdingRegisterRead(1091);
-    busP = modbusTCPClient.holdingRegisterRead(1606);
-    busPhRot = modbusTCPClient.holdingRegisterRead(1118);
-
-    busLLAVR = modbusTCPClient.holdingRegisterRead(1715) << 16 | modbusTCPClient.holdingRegisterRead(1714);
-    busLNAVR = modbusTCPClient.holdingRegisterRead(1707) << 16 | modbusTCPClient.holdingRegisterRead(1706);
-    busKW = modbusTCPClient.holdingRegisterRead(1585) << 16 | modbusTCPClient.holdingRegisterRead(1584);
     busL1N = modbusTCPClient.holdingRegisterRead(1093) << 16 | modbusTCPClient.holdingRegisterRead(1092);
     busL2N = modbusTCPClient.holdingRegisterRead(1095) << 16 | modbusTCPClient.holdingRegisterRead(1094);
     busL3N = modbusTCPClient.holdingRegisterRead(1097) << 16 | modbusTCPClient.holdingRegisterRead(1096);
     busL1L2 = modbusTCPClient.holdingRegisterRead(1099) << 16 | modbusTCPClient.holdingRegisterRead(1098);
     busL2L3 = modbusTCPClient.holdingRegisterRead(1101) << 16 | modbusTCPClient.holdingRegisterRead(1100);
     busL3L1 = modbusTCPClient.holdingRegisterRead(1103) << 16 | modbusTCPClient.holdingRegisterRead(1102);
+    busPhRot = modbusTCPClient.holdingRegisterRead(1118);
+    busKW = modbusTCPClient.holdingRegisterRead(1585) << 16 | modbusTCPClient.holdingRegisterRead(1584);
+    busP = modbusTCPClient.holdingRegisterRead(1606);
+    busLNAVR = modbusTCPClient.holdingRegisterRead(1707) << 16 | modbusTCPClient.holdingRegisterRead(1706);
+    busLLAVR = modbusTCPClient.holdingRegisterRead(1715) << 16 | modbusTCPClient.holdingRegisterRead(1714);
 
     switch (model) {
       case DSE_8660MKII:
+
       HZ = modbusTCPClient.holdingRegisterRead(1059);
-      P = modbusTCPClient.holdingRegisterRead(1582);
-      PF = modbusTCPClient.holdingRegisterRead(1581);
-      PhRot = modbusTCPClient.holdingRegisterRead(1074);
-
-      oilPressure = modbusTCPClient.holdingRegisterRead(1024);
-      battery = modbusTCPClient.holdingRegisterRead(1029);//battery
-      engineSpeed = modbusTCPClient.holdingRegisterRead(1030);//engine speed
-      coolantTemperature = modbusTCPClient.holdingRegisterRead(1025);//coolant temp
-      fuelLevel = modbusTCPClient.holdingRegisterRead(1027);//fuel level
-
-      V = modbusTCPClient.holdingRegisterRead(1699) << 16 | modbusTCPClient.holdingRegisterRead(1698);
-      KW = modbusTCPClient.holdingRegisterRead(1801) << 16 | modbusTCPClient.holdingRegisterRead(1800);//revisar
-      KVAR = modbusTCPClient.holdingRegisterRead(1577) << 16 | modbusTCPClient.holdingRegisterRead(1576);
-      KVA = modbusTCPClient.holdingRegisterRead(1569) << 16 | modbusTCPClient.holdingRegisterRead(1568);
-      LLAVR = modbusTCPClient.holdingRegisterRead(1699) << 16 | modbusTCPClient.holdingRegisterRead(1698);
       L1N = modbusTCPClient.holdingRegisterRead(1061) << 16 | modbusTCPClient.holdingRegisterRead(1060);
       L2N = modbusTCPClient.holdingRegisterRead(1063) << 16 | modbusTCPClient.holdingRegisterRead(1062);
       L3N = modbusTCPClient.holdingRegisterRead(1065) << 16 | modbusTCPClient.holdingRegisterRead(1064);
       L1L2 = modbusTCPClient.holdingRegisterRead(1067) << 16 | modbusTCPClient.holdingRegisterRead(1066);
       L2L3 = modbusTCPClient.holdingRegisterRead(1069) << 16 | modbusTCPClient.holdingRegisterRead(1068);
       L3L1 = modbusTCPClient.holdingRegisterRead(1071) << 16 | modbusTCPClient.holdingRegisterRead(1070);
+      PhRot = modbusTCPClient.holdingRegisterRead(1074);
       IL1 = modbusTCPClient.holdingRegisterRead(1077) << 16 | modbusTCPClient.holdingRegisterRead(1076);
       IL2 = modbusTCPClient.holdingRegisterRead(1079) << 16 | modbusTCPClient.holdingRegisterRead(1078);
       IL3 = modbusTCPClient.holdingRegisterRead(1081) << 16 | modbusTCPClient.holdingRegisterRead(1080);
-
-      engineRuntime = modbusTCPClient.holdingRegisterRead(1799) << 16 | modbusTCPClient.holdingRegisterRead(1798);
-      numberOfStarts = modbusTCPClient.holdingRegisterRead(1809) << 16 | modbusTCPClient.holdingRegisterRead(1808);
+      KW = modbusTCPClient.holdingRegisterRead(1561) << 16 | modbusTCPClient.holdingRegisterRead(1560);
+      KVA = modbusTCPClient.holdingRegisterRead(1569) << 16 | modbusTCPClient.holdingRegisterRead(1568);
+      KVAR = modbusTCPClient.holdingRegisterRead(1577) << 16 | modbusTCPClient.holdingRegisterRead(1576);
+      PF = modbusTCPClient.holdingRegisterRead(1581);
+      P = modbusTCPClient.holdingRegisterRead(1582);
+      LLAVR = modbusTCPClient.holdingRegisterRead(1699) << 16 | modbusTCPClient.holdingRegisterRead(1698);
+      V = modbusTCPClient.holdingRegisterRead(1691) << 16 | modbusTCPClient.holdingRegisterRead(1690);
 
       mainsAvailable = modbusTCPClient.holdingRegisterRead(48658);
-      genAvailable = 0;
-      busAvailable = modbusTCPClient.holdingRegisterRead(48661);
       mainBrk = modbusTCPClient.holdingRegisterRead(48659);
       busBrk = modbusTCPClient.holdingRegisterRead(48660);
+      busAvailable = modbusTCPClient.holdingRegisterRead(48661);
+      genAvailable = 0;
       genBrk = 0;
-      busLive = 0;
+      busLive = busAvailable;
       loadOn = (busBrk && busAvailable) | (mainBrk && mainsAvailable);
       break;
 
       case DSE_8610MKII://///////////////////////
-      HZ = modbusTCPClient.holdingRegisterRead(1031);
-      P = modbusTCPClient.holdingRegisterRead(1558);
-      PF = modbusTCPClient.holdingRegisterRead(1557);
-      PhRot = modbusTCPClient.holdingRegisterRead(1073);
 
-      V = modbusTCPClient.holdingRegisterRead(1651) << 16 | modbusTCPClient.holdingRegisterRead(1650);
-      KW = modbusTCPClient.holdingRegisterRead(1537) << 16 | modbusTCPClient.holdingRegisterRead(1536);
-      KVAR = modbusTCPClient.holdingRegisterRead(1553) << 16 | modbusTCPClient.holdingRegisterRead(1552);
-      KVA = modbusTCPClient.holdingRegisterRead(1545) << 16 | modbusTCPClient.holdingRegisterRead(1544);
-      LLAVR = modbusTCPClient.holdingRegisterRead(1659) << 16 | modbusTCPClient.holdingRegisterRead(1658);
+      oilPressure = modbusTCPClient.holdingRegisterRead(1024);
+      coolantTemperature = modbusTCPClient.holdingRegisterRead(1025);//coolant temp
+      fuelLevel = modbusTCPClient.holdingRegisterRead(1027);//fuel level
+      battery = modbusTCPClient.holdingRegisterRead(1029);//battery
+      engineSpeed = modbusTCPClient.holdingRegisterRead(1030);//engine speed
+      HZ = modbusTCPClient.holdingRegisterRead(1031);
+      PhRot = modbusTCPClient.holdingRegisterRead(1073);
       L1N = modbusTCPClient.holdingRegisterRead(1033) << 16 | modbusTCPClient.holdingRegisterRead(1032);
       L2N = modbusTCPClient.holdingRegisterRead(1035) << 16 | modbusTCPClient.holdingRegisterRead(1034);
       L3N = modbusTCPClient.holdingRegisterRead(1037) << 16 | modbusTCPClient.holdingRegisterRead(1036);
@@ -178,13 +166,22 @@ void DSE::update(){
       IL1 = modbusTCPClient.holdingRegisterRead(1045) << 16 | modbusTCPClient.holdingRegisterRead(1044);
       IL2 = modbusTCPClient.holdingRegisterRead(1047) << 16 | modbusTCPClient.holdingRegisterRead(1046);
       IL3 = modbusTCPClient.holdingRegisterRead(1049) << 16 | modbusTCPClient.holdingRegisterRead(1048);
+      KW = modbusTCPClient.holdingRegisterRead(1537) << 16 | modbusTCPClient.holdingRegisterRead(1536);
+      KVA = modbusTCPClient.holdingRegisterRead(1545) << 16 | modbusTCPClient.holdingRegisterRead(1544);
+      KVAR = modbusTCPClient.holdingRegisterRead(1553) << 16 | modbusTCPClient.holdingRegisterRead(1552);
+      PF = modbusTCPClient.holdingRegisterRead(1557);
+      P = modbusTCPClient.holdingRegisterRead(1558);
+      V = modbusTCPClient.holdingRegisterRead(1651) << 16 | modbusTCPClient.holdingRegisterRead(1650);
+      LLAVR = modbusTCPClient.holdingRegisterRead(1659) << 16 | modbusTCPClient.holdingRegisterRead(1658);
+      engineRuntime = modbusTCPClient.holdingRegisterRead(1799) << 16 | modbusTCPClient.holdingRegisterRead(1798);
       KWH = modbusTCPClient.holdingRegisterRead(1801) << 16 | modbusTCPClient.holdingRegisterRead(1800);
+      numberOfStarts = modbusTCPClient.holdingRegisterRead(1809) << 16 | modbusTCPClient.holdingRegisterRead(1808);
 
-      mainsAvailable = 0;
-      busAvailable = 0;
-      genAvailable = modbusTCPClient.holdingRegisterRead(48661);
-      mainBrk = 0;
       genBrk = modbusTCPClient.holdingRegisterRead(48659);
+      genAvailable = modbusTCPClient.holdingRegisterRead(48661);
+      busAvailable = 0;
+      mainsAvailable = 0;
+      mainBrk = 0;
       busBrk = 0;
       busLive = genAvailable && genBrk;
       loadOn = busLive;
