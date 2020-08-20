@@ -130,6 +130,9 @@ void DSE::update(){
       IL1 = modbusTCPClient.holdingRegisterRead(1077) << 16 | modbusTCPClient.holdingRegisterRead(1076);
       IL2 = modbusTCPClient.holdingRegisterRead(1079) << 16 | modbusTCPClient.holdingRegisterRead(1078);
       IL3 = modbusTCPClient.holdingRegisterRead(1081) << 16 | modbusTCPClient.holdingRegisterRead(1080);
+      L1KW = modbusTCPClient.holdingRegisterRead(1085) << 16 | modbusTCPClient.holdingRegisterRead(1084);
+      L2KW = modbusTCPClient.holdingRegisterRead(1087) << 16 | modbusTCPClient.holdingRegisterRead(1086);
+      L3KW = modbusTCPClient.holdingRegisterRead(1089) << 16 | modbusTCPClient.holdingRegisterRead(1088);
       KW = modbusTCPClient.holdingRegisterRead(1561) << 16 | modbusTCPClient.holdingRegisterRead(1560);
       KVA = modbusTCPClient.holdingRegisterRead(1569) << 16 | modbusTCPClient.holdingRegisterRead(1568);
       KVAR = modbusTCPClient.holdingRegisterRead(1577) << 16 | modbusTCPClient.holdingRegisterRead(1576);
@@ -166,6 +169,9 @@ void DSE::update(){
       IL1 = modbusTCPClient.holdingRegisterRead(1045) << 16 | modbusTCPClient.holdingRegisterRead(1044);
       IL2 = modbusTCPClient.holdingRegisterRead(1047) << 16 | modbusTCPClient.holdingRegisterRead(1046);
       IL3 = modbusTCPClient.holdingRegisterRead(1049) << 16 | modbusTCPClient.holdingRegisterRead(1048);
+      L1KW = modbusTCPClient.holdingRegisterRead(1053) << 16 | modbusTCPClient.holdingRegisterRead(1052);
+      L2KW = modbusTCPClient.holdingRegisterRead(1055) << 16 | modbusTCPClient.holdingRegisterRead(1054);
+      L3KW = modbusTCPClient.holdingRegisterRead(1057) << 16 | modbusTCPClient.holdingRegisterRead(1056);
       KW = modbusTCPClient.holdingRegisterRead(1537) << 16 | modbusTCPClient.holdingRegisterRead(1536);
       KVA = modbusTCPClient.holdingRegisterRead(1545) << 16 | modbusTCPClient.holdingRegisterRead(1544);
       KVAR = modbusTCPClient.holdingRegisterRead(1553) << 16 | modbusTCPClient.holdingRegisterRead(1552);
