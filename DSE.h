@@ -54,7 +54,7 @@ public:
   unsigned int HZ, P, mode, busHZ, busP, PF, PhRot, busPhRot, priority, qualityMSC, mastersOnline, gensOnline;
   unsigned int oilPressure, battery, engineSpeed, coolantTemperature, fuelLevel;
   unsigned long engineRuntime, numberOfStarts;
-  unsigned long V, KW, KVAR, KVA, LLAVR, L1N, L2N, L3N, L1L2, L2L3, L3L1, IL1, IL2, IL3 ;
+  unsigned long V, KW, KVAR, KVA, LLAVR, L1N, L2N, L3N, L1L2, L2L3, L3L1, IL1, IL2, IL3, KWH,L1KW, L2KW, L3KW;
   unsigned long busKW, busLNAVR,busLLAVR, busL1N, busL2N, busL3N, busL1L2, busL2L3, busL3L1, time;
 
   DSE(int, IPAddress);
