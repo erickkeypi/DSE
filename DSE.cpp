@@ -136,7 +136,7 @@ void DSE::update(){
       KW = modbusTCPClient.holdingRegisterRead(1561) << 16 | modbusTCPClient.holdingRegisterRead(1560);
       KVA = modbusTCPClient.holdingRegisterRead(1569) << 16 | modbusTCPClient.holdingRegisterRead(1568);
       KVAR = modbusTCPClient.holdingRegisterRead(1577) << 16 | modbusTCPClient.holdingRegisterRead(1576);
-      PF = modbusTCPClient.holdingRegisterRead(1581);
+      PF = constrain(modbusTCPClient.holdingRegisterRead(1581),-100,100);
       P = modbusTCPClient.holdingRegisterRead(1582);
       LLAVR = modbusTCPClient.holdingRegisterRead(1699) << 16 | modbusTCPClient.holdingRegisterRead(1698);
       V = modbusTCPClient.holdingRegisterRead(1691) << 16 | modbusTCPClient.holdingRegisterRead(1690);
@@ -175,7 +175,7 @@ void DSE::update(){
       KW = modbusTCPClient.holdingRegisterRead(1537) << 16 | modbusTCPClient.holdingRegisterRead(1536);
       KVA = modbusTCPClient.holdingRegisterRead(1545) << 16 | modbusTCPClient.holdingRegisterRead(1544);
       KVAR = modbusTCPClient.holdingRegisterRead(1553) << 16 | modbusTCPClient.holdingRegisterRead(1552);
-      PF = modbusTCPClient.holdingRegisterRead(1557);
+      PF = constrain(modbusTCPClient.holdingRegisterRead(1557),-100,100);
       P = modbusTCPClient.holdingRegisterRead(1558);
       V = modbusTCPClient.holdingRegisterRead(1651) << 16 | modbusTCPClient.holdingRegisterRead(1650);
       LLAVR = modbusTCPClient.holdingRegisterRead(1659) << 16 | modbusTCPClient.holdingRegisterRead(1658);
