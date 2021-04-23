@@ -155,6 +155,7 @@ void DSE::update(){
 
       oilPressure = modbusTCPClient.holdingRegisterRead(1024);
       coolantTemperature = modbusTCPClient.holdingRegisterRead(1025);//coolant temp
+      oilTemperature = modbusTCPClient.holdingRegisterRead(1026);//oilTemperature
       fuelLevel = modbusTCPClient.holdingRegisterRead(1027);//fuel level
       battery = modbusTCPClient.holdingRegisterRead(1029);//battery
       engineSpeed = modbusTCPClient.holdingRegisterRead(1030);//engine speed
@@ -199,10 +200,10 @@ void DSE::update(){
 void DSE::computeAlarms(){
     for(int j=0;j<37;j++){
       //SEPARANDO
-      int a1 = alarmsReg[j]&0b00001111;
-      int a2 = (alarmsReg[j]>>4)&0b00001111;
-      int a3 = (alarmsReg[j]>>8)&0b00001111;
-      int a4 = (alarmsReg[j]>>12)&0b00001111;
+      int a4 = alarmsReg[j]&0b00001111;
+      int a3 = (alarmsReg[j]>>4)&0b00001111;
+      int a2 = (alarmsReg[j]>>8)&0b00001111;
+      int a1 = (alarmsReg[j]>>12)&0b00001111;
       //DETECTANDO SI EL VALOR ESTA ENTRE 2 Y 4
       alarms[j*4]=a1<=4 && a1>=2;
       alarms[(j*4)+1]=a2<=4 && a2>=2;
