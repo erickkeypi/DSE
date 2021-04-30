@@ -96,6 +96,79 @@ void DSE::update(){
   }
 
   if(!commError){
+    var1 = var2 = var3 = var4 = var5 = var6 = var7 = var8 = var9 = var10 = 0;
+
+    //variables plc interno
+    var1 = modbusTCPClient.holdingRegisterRead(18434) << 16 |modbusTCPClient.holdingRegisterRead(18433);
+    var2 = modbusTCPClient.holdingRegisterRead(18436) << 16 |modbusTCPClient.holdingRegisterRead(18435);
+    var3 = modbusTCPClient.holdingRegisterRead(18438) << 16 |modbusTCPClient.holdingRegisterRead(18437);
+    var4 = modbusTCPClient.holdingRegisterRead(18440) << 16 |modbusTCPClient.holdingRegisterRead(18439);
+    var5 = modbusTCPClient.holdingRegisterRead(18442) << 16 |modbusTCPClient.holdingRegisterRead(18441);
+    var6 = modbusTCPClient.holdingRegisterRead(18442) << 16 |modbusTCPClient.holdingRegisterRead(18441);
+    var7 = modbusTCPClient.holdingRegisterRead(18442) << 16 |modbusTCPClient.holdingRegisterRead(18441);
+    var8 = modbusTCPClient.holdingRegisterRead(18442) << 16 |modbusTCPClient.holdingRegisterRead(18441);
+    var9 = modbusTCPClient.holdingRegisterRead(18442) << 16 |modbusTCPClient.holdingRegisterRead(18441);
+    var10 = modbusTCPClient.holdingRegisterRead(18442) << 16 |modbusTCPClient.holdingRegisterRead(18441);
+
+    //Entradas analogas
+    analogeInputA = modbusTCPClient.holdingRegisterRead(45568);
+    analogeInputB = modbusTCPClient.holdingRegisterRead(45569);
+    analogeInputC = modbusTCPClient.holdingRegisterRead(45570);
+    analogeInputD = modbusTCPClient.holdingRegisterRead(45571);
+
+    //Entradas digitales
+    digitalInputA = modbusTCPClient.holdingRegisterRead(43520);
+    digitalInputB = modbusTCPClient.holdingRegisterRead(43522);
+    digitalInputC = modbusTCPClient.holdingRegisterRead(43524);
+    digitalInputD = modbusTCPClient.holdingRegisterRead(43526);
+    digitalInputE = modbusTCPClient.holdingRegisterRead(43528);
+    digitalInputF = modbusTCPClient.holdingRegisterRead(43530);
+    digitalInputG = modbusTCPClient.holdingRegisterRead(43532);
+    digitalInputH = modbusTCPClient.holdingRegisterRead(43534);
+    digitalInputI = modbusTCPClient.holdingRegisterRead(43536);
+    digitalInputJ = modbusTCPClient.holdingRegisterRead(43538);
+    digitalInputK = modbusTCPClient.holdingRegisterRead(43540);
+    digitalInputL = modbusTCPClient.holdingRegisterRead(43542);
+
+    //Salidas digitales
+    digitalOutputA = modbusTCPClient.holdingRegisterRead(46081);
+    digitalOutputB = modbusTCPClient.holdingRegisterRead(46083);
+    digitalOutputE = modbusTCPClient.holdingRegisterRead(46085);
+    digitalOutputF = modbusTCPClient.holdingRegisterRead(46087);
+    digitalOutputG = modbusTCPClient.holdingRegisterRead(46089);
+    digitalOutputH = modbusTCPClient.holdingRegisterRead(46091);
+    digitalOutputI = modbusTCPClient.holdingRegisterRead(46093);
+    digitalOutputJ = modbusTCPClient.holdingRegisterRead(46095);
+    digitalOutputK = modbusTCPClient.holdingRegisterRead(46097);
+    digitalOutputL = modbusTCPClient.holdingRegisterRead(46099);
+    digitalOutputM = modbusTCPClient.holdingRegisterRead(46101);
+    digitalOutputN = modbusTCPClient.holdingRegisterRead(46103);
+    digitalOutputD = modbusTCPClient.holdingRegisterRead(46105);
+    digitalOutputC = modbusTCPClient.holdingRegisterRead(46107);
+
+    //PLC functions
+    plcFunction1 = modbusTCPClient.holdingRegisterRead(43931);
+    plcFunction2 = modbusTCPClient.holdingRegisterRead(43933);
+    plcFunction3 = modbusTCPClient.holdingRegisterRead(43935);
+    plcFunction4 = modbusTCPClient.holdingRegisterRead(43937);
+    plcFunction5 = modbusTCPClient.holdingRegisterRead(43939);
+    plcFunction6 = modbusTCPClient.holdingRegisterRead(43941);
+    plcFunction7 = modbusTCPClient.holdingRegisterRead(43943);
+    plcFunction8 = modbusTCPClient.holdingRegisterRead(43945);
+    plcFunction9 = modbusTCPClient.holdingRegisterRead(43947);
+    plcFunction10 = modbusTCPClient.holdingRegisterRead(43949);
+    plcFunction11 = modbusTCPClient.holdingRegisterRead(43951);
+    plcFunction12 = modbusTCPClient.holdingRegisterRead(43953);
+    plcFunction13 = modbusTCPClient.holdingRegisterRead(43955);
+    plcFunction14 = modbusTCPClient.holdingRegisterRead(43957);
+    plcFunction15 = modbusTCPClient.holdingRegisterRead(43959);
+    plcFunction16 = modbusTCPClient.holdingRegisterRead(43961);
+    plcFunction17 = modbusTCPClient.holdingRegisterRead(43963);
+    plcFunction18 = modbusTCPClient.holdingRegisterRead(43965);
+    plcFunction19 = modbusTCPClient.holdingRegisterRead(43967);
+    plcFunction20 = modbusTCPClient.holdingRegisterRead(43969);
+
+
 
     gensOnline = modbusTCPClient.holdingRegisterRead(28);
     mastersOnline = modbusTCPClient.holdingRegisterRead(29);

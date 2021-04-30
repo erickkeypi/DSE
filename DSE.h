@@ -56,7 +56,15 @@ public:
   unsigned long engineRuntime, numberOfStarts;
   unsigned long V, KW, KVAR, KVA, LLAVR, L1N, L2N, L3N, L1L2, L2L3, L3L1, IL1, IL2, IL3, KWH,L1KW, L2KW, L3KW;
   unsigned long busKW, busLNAVR,busLLAVR, busL1N, busL2N, busL3N, busL1L2, busL2L3, busL3L1, time;
-
+  unsigned long var1, var2, var3, var4, var5, var6, var7, var8, var9, var10;
+  unsigned long analogeInputA, analogeInputB, analogeInputC, analogeInputD;
+  bool digitalInputA, digitalInputB, digitalInputC, digitalInputD, digitalInputE, digitalInputF;
+  bool digitalInputG, digitalInputH, digitalInputI, digitalInputJ, digitalInputK, digitalInputL;
+  bool plcFunction1, plcFunction2, plcFunction3, plcFunction4, plcFunction5, plcFunction6, plcFunction7;
+  bool plcFunction8, plcFunction9, plcFunction10, plcFunction11, plcFunction12, plcFunction13, plcFunction14;
+  bool plcFunction15, plcFunction16, plcFunction17, plcFunction18, plcFunction19, plcFunction20;
+  bool digitalOutputA, digitalOutputB, digitalOutputC, digitalOutputD, digitalOutputE, digitalOutputF, digitalOutputM;
+  bool digitalOutputG, digitalOutputH, digitalOutputI, digitalOutputJ, digitalOutputK, digitalOutputL, digitalOutputN;
   DSE(int, IPAddress);
   DSE(int, IPAddress,char[]);
   void begin();
